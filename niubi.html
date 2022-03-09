@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>审批详情</title>
+		<style type="text/css">
+			body {
+				width: 100vw;
+
+				html::-webkit-scrollbar {
+					width: 0px
+				}
+			}
+
+			#app {
+				background-color: #f9fafc;
+				/* padding: 0; */
+			}
+
+			.head {
+				width: 93%;
+				height: auto;
+				background-color: #ffffff;
+				box-shadow: 0 0 1px 1px lightgrey;
+				margin: 0 1%;
+				margin-top: 2vh;
+				background-image: url("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-c20a2a1c-45e9-4268-b42f-ba5aac3b88ac/7e68fb90-d202-4807-b975-4b54e86f8eff.png");
+				background-repeat: no-repeat;
+				background-position-x: 95%;
+				border-radius: 5px;
+
+
+			}
+
+			.title {
+				padding: 3%;
+				width: 80vw;
+				font-size: 20px;
+				font-weight: bolder;
+				border-bottom: #f5f5f5 solid 1px;
+				margin: 0 auto
+			}
+
+			.content1 {
+				margin-top: 3%;
+				margin-left: 3%;
+			}
+
+			.item {
+				display: flex;
+				flex-direction: row;
+				margin-bottom: 4%;
+			}
+
+			.item_left {
+				width: 20%;
+				padding-right: 4%;
+				text-align: right;
+				color: #98a2a2;
+
+			}
+
+			.item_right {
+				/* font-weight: bold; */
+			}
+
+			.down {
+				width: 100vw;
+			}
+
+			.down img {
+				width: 20px;
+				height: 20px;
+				margin: 0 auto;
+				text-align: center;
+				padding-left: 42%;
+			}
+
+			.up img {
+				width: 15px;
+				height: 15x;
+				margin: 0 auto;
+				text-align: center;
+				padding-left: 46%;
+			}
+
+			.userInfo {
+				width: 98%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding-top: 2%;
+				border-top: 1px solid #f5f5f5;
+				margin: 0 auto;
+				padding-bottom: 5%;
+			}
+
+			.userInfo_left img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				margin-left: 3%;
+
+			}
+
+			.userInfo_right {
+				padding-left: 5%;
+			}
+
+			.userName {
+				font-weight: bold;
+				font-size: 15px;
+			}
+
+			.college {
+				color: #869095;
+				font-size: 12px;
+			}
+
+			.main {
+				background-color: #FFFFFF;
+				/* box-shadow:  0 0 1px 1px lightgrey; */
+				width: 100vw;
+				height: 30vh;
+				margin-top: 4%;
+				border-top: #f5f5f5 solid 1px;
+			}
+
+			.main_head {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding-left: 68%;
+				padding-top: 2%;
+				font-size: 10px;
+			}
+
+			.main_head img {
+				width: 15px;
+				height: 15px;
+				margin-left: 5px;
+
+			}
+
+			.main_content {
+				margin-top: 3%;
+				background-image: url("https://vkceyugu.cdn.bspapp.com/VKCEYUGU-c20a2a1c-45e9-4268-b42f-ba5aac3b88ac/4ec0002f-5a82-4509-84c7-cb8dc6e8dc2c.png");
+				background-repeat: no-repeat;
+				height: auto;
+				background-color: #FFFFFF;
+				padding-bottom: 5%;
+			}
+
+			.mc1 {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				border-bottom: 1px solid #f5f5f5;
+				padding-bottom: 8%;
+				margin-left: 5%;
+			}
+
+			.mc1_left {
+				flex: 1;
+
+			}
+
+			.wcxsp {
+				font-weight: bold;
+				font-size: 15px;
+			}
+
+			.ywc {
+				color: #52a482;
+				font-size: 11px;
+				padding-top: 2%;
+			}
+
+			.mc1_right {
+				color: #939699;
+				font-size: 11px;
+				padding-right: 6%;
+			}
+
+			.mc1_left view:nth-child(1) {
+				font-weight: bold;
+			}
+
+			.fdyInfo {
+				display: flex;
+				flex-direction: row;
+				margin-left: 5%;
+				margin-top: 3%;
+				align-items: center;
+				border-bottom: 1px solid #f5f5f5;
+				padding-bottom: 8%;
+			}
+
+			.fdyInfo_left img {
+				width: 52px;
+				height: 52px;
+			}
+
+			.fdyname .name {
+
+				font-size: 15px;
+				flex: 1;
+
+			}
+
+			.fdyInfo_right .fdyname {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: 100%;
+
+			}
+
+			.fdyname .time {
+				color: #939699;
+				font-size: 11px;
+				margin-right: 7%;
+			}
+
+			.fdyInfo_right {
+				flex: 1;
+			}
+
+			.me {
+				display: flex;
+				flex-direction: row;
+				margin-left: 6%;
+				align-items: center;
+				margin-top: 4%;
+
+			}
+
+			.me img {
+				width: 35px;
+				height: 35px;
+				border-radius: 50%;
+			}
+
+			.me_right {
+				color: #939699;
+				font-size: 11px;
+				padding-right: 6%;
+			}
+
+			.me_center {
+				flex: 1;
+				padding-left: 3%;
+			}
+
+			.bottom {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-evenly;
+				text-align: center;
+				padding-bottom: 5%;
+				padding-top: 5%;
+				position: fixed;
+				width: 100vw;
+				bottom: 0;
+				left: 0;
+				background-color: #FFFFFF;
+				z-index: 999;
+				border-top: 1px solid #f5f5f5;
+			}
+
+			.bottom img {
+				width: 17px;
+				height: 17px;
+				padding-right: 3px;
+			}
+
+			.bottom .b_l {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+
+			.bottom .b_r {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+		</style>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<div class="title">张棋飞的学生离校申请表</div>
+				<div class="content1">
+					<div class="item">
+						<div class="item_left">学号</div>
+						<div class="item_right">202010096843</div>
+					</div>
+					<div class="item">
+						<div class="item_left">所在年级和专业</div>
+						<div class="item_right">2020会计4班</div>
+					</div>
+					<div class="item">
+						<div class="item_left">离校日期</div>
+						<div class="item_right">{{date}}</div>
+					</div>
+					<div class="item">
+						<div class="item_left">离校时长</div>
+						<div class="item_right">2天内</div>
+					</div>
+
+				</div>
+				<div class="down" v-show="!down" @click="change()">
+					<img
+						src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/f6ba3492-4a7f-40ee-8a51-7dc17d3a6b26.png" />
+				</div>
+			
+				<div class="content1" v-show="down">
+					<div class="item">
+						<div class="item_left">省</div>
+						<div class="item_right">广东</div>
+					</div>
+					<div class="item">
+						<div class="item_left">市</div>
+						<div class="item_right">广州市</div>
+					</div>
+					<div class="item">
+						<div class="item_left">区</div>
+						<div class="item_right">花都区</div>
+					</div>
+					<div class="item">
+						<div class="item_left">请假事由</div>
+						<div class="item_right">去医院复诊，望老师批准。</div>
+					</div>
+					<div class="item">
+						<div class="item_left">辅导员</div>
+						<div class="item_right">周泽松</div>
+					</div>
+					<div class="item">
+						<div class="item_left">流水号</div>
+						<div class="item_right">GKTFOGF-{{date3}}-94381</div>
+					</div>
+					<div class="userInfo">
+						<div class="userInfo_left">
+							<img
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/0e57b561-e43f-478f-b068-87283a2179c2.png" />
+						</div>
+						<div class="userInfo_right">
+							<div class="userName">
+								张棋飞
+							</div>
+							<div class="college">
+								管理学院（学生）
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="up" v-show="down" @click="change()">
+					<img
+						src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/e6d15c59-307b-468e-8ea5-9990db150963.png">
+				</div>
+				 
+
+			</div>
+			<div class="main">
+				<div class="main_head" @click="changesort()">
+					<div v-show="!timesort">切换至时间正序</div>
+					<div v-show="timesort">切换至时间倒序</div>
+					<img
+						src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/897045ab-8f8a-45bf-afd6-88bff9043c17.png" />
+				</div>
+
+				<div class="main_content" v-show="!timesort">
+					<div class="mc1">
+						<div class="mc1_left">
+							<div class="wcxsp">完成审批</div>
+							<div class="ywc">已完成</div>
+						</div>
+						<div class="mc1_right">
+							{{date2}} 08:45
+						</div>
+					</div>
+					<div class="mc1" style="margin-top: 5%;border-bottom: #F5F5F5;padding-bottom: 0;">
+						<div class="mc1_left">
+							<div class="wcxsp">辅导员</div>
+							<div class="ywc">已审批</div>
+						</div>
+						<div class="mc1_right">
+							<img style="width: 11px;height: 11px;"
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/7d95817e-f146-46b1-b6a6-84009060f8f6.png" />
+						</div>
+					</div>
+					<div class="fdyInfo">
+						<div class="fdyInfo_left">
+							<img
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/8d066310-d49d-4196-9143-586be3d2ce11.png" />
+						</div>
+						<div class="fdyInfo_right">
+							<div class="fdyname">
+								<div class="name">周泽松</div>
+								<div class="time">{{date1}} 08:45 </div>
+							</div>
+							<div class="fdynote">
+								注意疫情防护
+							</div>
+						</div>
+					</div>
+					<div class="me">
+						<div class="me_left">
+							<img
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/0e57b561-e43f-478f-b068-87283a2179c2.png" />
+						</div>
+						<div class="me_center">
+							<div class="myname" style="font-weight: bold;">
+								张棋飞
+							</div>
+							<div class="wcsp" style="color: #52a482;
+						font-size: 11px;
+						padding-top: 2%;">
+								发起审批
+							</div>
+						</div>
+						<div class="me_right">
+							{{date2}} 07:30
+						</div>
+					</div>
+
+					<!-- aaaa -->
+
+				</div>
+				<div class="main_content" v-show="timesort">
+					<div class="me">
+						<div class="me_left">
+							<img
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/0e57b561-e43f-478f-b068-87283a2179c2.png" />
+						</div>
+						<div class="me_center">
+							<div class="myname" style="font-weight: bold;">
+								张棋飞
+							</div>
+							<div class="wcsp" style="color: #52a482;
+					font-size: 11px;
+					padding-top: 2%;">
+								发起审批
+							</div>
+						</div>
+						<div class="me_right">
+							{{date2}} 07:30
+						</div>
+					</div>
+
+					<div class="mc1" style="margin-top: 5%;border-bottom: #F5F5F5;padding-bottom: 0;margin-top: 15%;">
+						<div class="mc1_left">
+							<div class="wcxsp">辅导员</div>
+							<div class="ywc">已审批</div>
+						</div>
+						<div class="mc1_right">
+							<img style="width: 11px;height: 11px;"
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/7d95817e-f146-46b1-b6a6-84009060f8f6.png" />
+						</div>
+
+					</div>
+					<div class="fdyInfo">
+						<div class="fdyInfo_left">
+							<img
+								src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/8d066310-d49d-4196-9143-586be3d2ce11.png" />
+						</div>
+						<div class="fdyInfo_right">
+							<div class="fdyname">
+								<div class="name">周泽松</div>
+								<div class="time">{{date1}} 08:45 </div>
+							</div>
+							<div class="fdynote">
+								注意疫情防护
+							</div>
+						</div>
+					</div>
+
+					<div class="mc1" style="margin-top: 2%;">
+						<div class="mc1_left">
+							<div class="wcxsp">完成审批</div>
+							<div class="ywc">已完成</div>
+						</div>
+						<div class="mc1_right">
+							{{date2}} 08:45
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+				<div class="h" style="height: 50%;"></div>
+				<div class="bottom">
+					<div class="b_l" style="border-right: #f5f5f5 1px solid;padding-right: 17%;">
+						<img
+							src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/b90b431e-5f6d-4ec9-940a-4f3bfbfb4619.png" />
+						<div>讨论</div>
+					</div>
+					<div class="b_r">
+						<img
+							src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-8fbe9715-4ecf-45a4-b3f9-a0f9fcb5b9bb/211d3c92-cd01-49c9-8695-fdb1d0acbafa.png" />
+						<div>反馈</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'hello nikey',
+				down: false,
+				timesort: false,
+				date: "2022-03-19",
+				date1: "2022-03-19",
+				date2: "2022-03-19"
+			},
+			methods: {
+				change() {
+					this.down = !this.down
+				},
+				changesort() {
+					this.timesort = !this.timesort
+				},
+				dataFormat(time) {
+					return `${time.getFullYear()}-${time.getMonth() + 1 >= 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)}-${time.getDate() >= 10 ? time.getDate() : '0' + time.getDate()}
+			`;
+				},
+				dataFormat1(time) {
+					return `${time.getFullYear()}/${time.getMonth() + 1 >= 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)}/${time.getDate() >= 10 ? time.getDate() : '0' + time.getDate()}
+				`;
+				},
+				dataFormat2(time) {
+					return `${time.getMonth() + 1 >= 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)}/${time.getDate() >= 10 ? time.getDate() : '0' + time.getDate()}
+				`;
+				},
+				dataFormat3(time) {
+					return `${time.getFullYear()}${time.getMonth() + 1 >= 10 ? (time.getMonth() + 1) : '0' + (time.getMonth() + 1)}${time.getDate() >= 10 ? time.getDate() : '0' + time.getDate()}
+				`;
+				},
+			},
+			created() {
+				console.log(111)
+				console.log(new Date())
+				let date =new Date()
+				this.date = this.dataFormat(date)
+				this.date1 = this.dataFormat1(date)
+				this.date2=this.dataFormat2(date)
+				this.date3=this.dataFormat3(date)
+		
+			}
+		});
+	</script>
+</html>
